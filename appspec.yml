@@ -1,8 +1,11 @@
 version: 0.0
-hooks:
-  ApplicationStop:
-    - location: scripts/application_stop.sh
-      timeout: 60
+Resources:
+  - myLambdaFunction:
+      Type: AWS::Lambda::Function
+      Properties:
+        Name: github-lambda-demo2
+        Alias: live
+Hooks:
   BeforeInstall:
     - location: scripts/before_install.sh
       timeout: 300
