@@ -1,10 +1,14 @@
 version: 0.0
 resources:
-  - github-lambda-demo2:
+  - myLambdaFunction:
       Type: AWS::Lambda::Function
       Properties:
         Name: github-lambda-demo2
-        Alias: live
+        Handler: lambda_function.hello
+        Role: arn:aws:iam::274518127443:role/service-role/your-lambda-role
+        CodeUri: s3://github-to-lambda-bucket/deployment_package.zip
+        Runtime: python3.11
+        Timeout: 10
 hooks:
   ApplicationStop:
     - location: scripts/application_stop.sh
