@@ -18,4 +18,7 @@ post_build:
     - echo "Copying deployment package to S3..."
     - aws s3 cp deployment_package.zip s3://github-to-lambda-bucket/
 artifacts:
-  files: deployment_package.zip
+  files:
+    - appspec.yml
+    - deployment_package.zip
+
