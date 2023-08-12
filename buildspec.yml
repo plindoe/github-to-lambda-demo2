@@ -21,4 +21,3 @@ artifacts:
   files:
     - appspec.yml
     - deployment_package.zip
-
